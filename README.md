@@ -50,9 +50,10 @@ npm start
 ```
 
 ### 3. Set Up the Frontend
-Navigate to the frontend directory:
+Navigate to the frontend directory(open another command prompt):
 ```sh
-cd ../client
+cd expense-tracker-demo
+cd client
 ```
 
 Install the required dependencies:
