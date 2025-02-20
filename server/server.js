@@ -31,7 +31,7 @@ db.connect((err) => {
     }
 });
 
-// User Registration API
+// API register user
 app.post("/register", async (req, res) => {
     const { username, email, password } = req.body;
 
@@ -69,7 +69,7 @@ app.post("/register", async (req, res) => {
 
 
 
-//User Login API
+//API to login user
 app.post("/login", async (req, res) => {
     const { email, password } = req.body;
 
@@ -95,7 +95,7 @@ app.post("/login", async (req, res) => {
         res.status(200).json({ message: "Login successful", token });
     });
 });
-
+//API to load data
 app.get("/dashboard", async (req, res) => {
     const { email } = req.query;
 
@@ -142,7 +142,7 @@ app.get("/dashboard", async (req, res) => {
     }
 });
 
-
+//API to add data
 app.post("/add-expense", (req, res) => {
     const { email, amount, category, description } = req.body;
 
@@ -173,7 +173,7 @@ app.post("/add-expense", (req, res) => {
     });
 });
 
-
+//API to delete data
 app.delete("/delete-expense", (req, res) => {
     const { email, ids } = req.body;
 
@@ -221,7 +221,7 @@ app.delete("/delete-expense", (req, res) => {
     });
 });
 
-
+//API to download pdf
 app.get("/get-pdf", async (req, res) => {
     const { email } = req.query; // Use req.query instead of req.params
 
@@ -238,7 +238,6 @@ app.get("/get-pdf", async (req, res) => {
         if (results.length === 0) {
             return res.status(404).json({ message: "No expenses found for this email" });
         }
-        console.log("Fetched data:", results); // Debugging log
         res.json(results);
     });
 });
